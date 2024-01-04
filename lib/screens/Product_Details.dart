@@ -19,9 +19,10 @@ class Product_Details extends StatefulWidget {
 class _Product_DetailsState extends State<Product_Details> {
   @override
   Widget build(BuildContext context) {
-    String? _productImage =
-        ModalRoute.of(context)!.settings.arguments as String?;
-
+    final _productData =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    String? ProductImage = _productData['ProductImage'];
+    String? ProductName = _productData['ProductName'];
     return Scaffold(
       backgroundColor: Color.fromRGBO(255, 255, 255, 1),
       body: SingleChildScrollView(
@@ -70,7 +71,7 @@ class _Product_DetailsState extends State<Product_Details> {
                 horizontal: 8.0,
                 vertical: 1.0,
               ),
-              child: Card(child: Image.asset(_productImage!)),
+              child: Card(child: Image.asset(ProductImage!)),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(5.0),
@@ -102,7 +103,7 @@ class _Product_DetailsState extends State<Product_Details> {
             Padding(
               padding: EdgeInsets.only(left: 17),
               child: Text(
-                "sahsgdja",
+                ProductName!,
                 style: GoogleFonts.poppins(
                     textStyle:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),

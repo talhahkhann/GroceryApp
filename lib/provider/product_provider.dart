@@ -42,27 +42,8 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  FetchProductDataDetailPage() async {
-    List<ProductModel> newList = [];
-    QuerySnapshot data =
-        await FirebaseFirestore.instance.collection("ProductDetail").get();
-    data.docs.forEach(
-      (element) {
-        productModel = ProductModel(
-          ProductImage: element.get("ProductImage"),
-          ProductName: element.get("ProductName"),
-        );
-        newList.add(productModel!);
-      },
-    );
-    ProductDetail = newList;
-    notifyListeners();
-  }
-
   List<ProductModel> get getProductModelDataList {
     return ProductList;
   }
-   List<ProductModel> get getProductModelProductDetailList {
-    return ProductDetail;
-  }
+  
 }

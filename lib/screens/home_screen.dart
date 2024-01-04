@@ -160,7 +160,9 @@ class _Home_ScreenState extends State<Home_Screen> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/product_detail',
-                          arguments: getProductModelDataList.ProductImage);
+                          arguments: {'ProductImage':getProductModelDataList.ProductImage,
+                                      'ProductName' : getProductModelDataList.ProductName
+                          });
                     },
                     child: Card(
                       child: Container(
